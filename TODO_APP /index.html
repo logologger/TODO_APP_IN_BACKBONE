@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>You can do what you wanna do !</title>
+    
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Chewy' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="lib/CSS/index.css"/>
+    <link rel="stylesheet" href="lib/CSS/bootstrap.css"/>
+    
+  </head>
+  <body>
+    
+    <header>
+      <h1>Just Do It ! </h1>
+    </header>
+    <section>
+      <div class="container-fluid" id="container">
+      
+       
+  
+      </div>
+         <div id="all_tasks">
+           </div>
+    </section>
+    <footer>
+      
+      <!--Inside a View other View doesnt renders-->
+      
+    </footer>
+    
+    <script id="task_items" type="text/template">
+    <p class="title"><%= title ? title:'' %> &nbsp; &nbsp; <a href="data:text/plain;charset=utf-8,<%=this.model.get('task') %>" download='task.txt' ><img id="download_txt" title="Download it" src="images/export.jpeg" alt="Download the task" width="15px" height="15px"/></a></p>
+       <div class="panel <%=completed ? 'panel-success': 'panel-danger'%>">
+       <div class="panel-heading ">
+        <input  class="toggle" type="checkbox"  <%=completed ? 'checked' :''%> ><%=completed ? 'Completed' : 'Not Completed' %>
+        
+        <p class="delete"> Delete It</p>
+        <input class="delete" type="checkbox" >
+        <br>
+        </div>
+        <div class="panel-body">
+      
+      <p class="<%=completed?'green':'red'%> task"><%=task%></p>
+      </div>
+      <div class="panel-footer">
+      <p class="date"><%=new Date(Date.parse(date))%></p>
+      <br>
+      </div>
+      </div>
+        
+            
+         
+        
+    </script>
+        <script type="text/template" id="todoApp">
+      <div class="form-group" >
+         <input id="title_box" class="form-control" type="text" name="title" placeholder="Write the title here(optional)">
+          <br>
+          <textarea  placeholder="Just Write your task here slowly ... and hit enter"  rows="7" /*style="height: 161px; width: 463px;" */ id="task_box" class="form-control"  name="task" ></textarea>
+     </div>
+     <div class="form-group">
+        <a href="#pending">Pending</a>&nbsp;&nbsp;|
+        <a href="#completed">Completed</a>&nbsp;&nbsp;|
+        <a href="#all">All</a>
+      
+     </div>
+      </script>
+    <script src="lib/JS/jquery.js"></script>
+    <script src="lib/JS/bootstrap.js"></script>
+    <script src="lib/JS/underscore.js"></script>
+    <script src="lib/JS/backbone.js"></script>
+    <script src="lib/JS/backbone_local_storage_min.js"></script>
+    <script src="model/Todo.js"></script>
+    <script src="collection/TodoList.js"></script>
+    <script src="view/fixedView.js"></script>
+    <script src="router/approuter.js"></script>
+    <script src="view/todoView.js"></script>
+    <script src="view/appView.js"></script>
+   <script src="app.js"></script>
+  </body>
+  
+  
+  
+</html>
